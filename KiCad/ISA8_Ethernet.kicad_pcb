@@ -11,7 +11,13 @@
 
   (page User 279.4 215.9)
   (title_block
-    (date "6 apr 2013")
+    (title "ISA 8-Bit Ethernet Controller")
+    (date 2021-04-22)
+    (rev 1.0)
+    (company "Designed by Sergey Kiselev")
+    (comment 2 "Licensed under CERN-OHL-S: https://cern-ohl.web.cern.ch")
+    (comment 3 "Documentation and design files: https://github.com/skiselev/isa8_eth")
+    (comment 4 "ISA 8-Bit Ethernet Controller is an open source hardware project")
   )
 
   (layers
