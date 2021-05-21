@@ -48,13 +48,31 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 
 ### Bill of Materials - Version 1.0
 
-[ISA 8-bit Ethernet project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=xxxxxxxxxx) - View and order all components except of the PCB and the Realtek RTL8019 IC.
+[ISA 8-bit Ethernet project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=6373f65c4a) - View and order all components except of the PCB and the Realtek RTL8019 IC.
 
 [ISA 8-bit Ethernet project on OSH Park](https://oshpark.com/shared_projects/xxxxxxxx) - View and order the PCB.
 
-Component type     | Reference | Description                       | Quantity | Possible sources and notes 
------------------- | --------- | --------------------------------- | -------- | --------------------------
-PCB                |           | ISA 8-bit Ethernet PCB - Version 1.0  | 1   | Buy from my Tindie store: [ISA 8-bit Ethernet PCB, and optionally a preprogrammed EEPROM](https://www.tindie.com/products/weird/isa8-eth-pcb), or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
+Component type     | Reference | Description                           | Quantity | Possible sources and notes 
+------------------ | --------- | ------------------------------------- | -------- | --------------------------
+PCB                |           | ISA 8-bit Ethernet PCB - Version 1.0  | 1        | Buy from my Tindie store: [ISA 8-bit Ethernet PCB, and optionally a preprogrammed EEPROM](https://www.tindie.com/products/weird/isa8-eth-pcb), or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
+Integrated Circuit | U1        | Realtek RTL8019AS Ethernet Controller | 1        | Authorized Realtek distributors or eBay
+Integrated Circuit | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP  | 1  | Optional - Boot ROM. Mouser [804-39SF0407CPHE](https://www.mouser.com/ProductDetail/804-39SF0407CPHE)
+Integrated Circuit | U3        | 93C46 - 1 Kbit EEPROM, 4 pin SOIC     | 1        | Mouser [511-M93C46-WMN6TP](https://www.mouser.com/ProductDetail/511-M93C46-WMN6TP)
+Quartz Crystal     | Y1        | 20 MHz, 18pF, HC-49U                  | 1        | Mouser [774-ATS200C](https://www.mouser.com/ProductDetail/774-ATS200C)
+Ethernet Jack      | J1        | Amphenol RJMG1BD3B8K1ANR - Ethernet jack with magnetics | 1 | Mouser [523-RJMG1BD3B8K1ANR](https://www.mouser.com/ProductDetail/523-RJMG1BD3B8K1ANR)
+DIP Switch         | SW1, SW2  | DIP switch, 2 position, SPST          | 2        | Mouser [774-2102MS](https://www.mouser.com/ProductDetail/774-2102MS)
+DIP Switch         | SW3       | DIP switch, 4 position, SPST          | 1        | Mouser [774-2104MS](https://www.mouser.com/ProductDetail/774-2104MS)
+DIP Switch         | SW4       | DIP switch, 5 position, SPST          | 1        | Mouser [774-2105MS](https://www.mouser.com/ProductDetail/774-2105MS)
+Capacitor          | C1, C2    | 10pF MLCC Capacitor, 0603 SMT         | 2        | Mouser [77-VJ0603A100JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603A100JXACBC)
+Capacitor          | C3, C4    | 0.01uF MLCC Capacitor, 0603 SMT       | 2        | Mouser [77-VJ0603Y103JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603Y103JXACBC)
+Capacitor          | C5 - C8   | 0.1uF MLCC Capacitor, 0603 SMT        | 4        | Mouser [77-VJ0603Y104JXJPBC](https://www.mouser.com/ProductDetail/77-VJ0603Y104JXJPBC)
+Capacitor          | C1, C2    | 22uF Tantalum Capacitor, 1210 SMT     | 2        | Mouser [581-TAJB226K016TNJ](https://www.mouser.com/ProductDetail/581-TAJB226K016TNJ)
+Resistor           | R1        | 200 Ohm Resistor, 0603 SMT            | 1        | Mouser [603-RC0603FR-13200RL](https://www.mouser.com/ProductDetail/603-RC0603FR-13200RL)
+Resistor           | R2, R3    | 470 Ohm Resistor, 0603 SMT            | 2        | Mouser [603-RC0603FR-13470RL](https://www.mouser.com/ProductDetail/603-RC0603FR-13470RL)
+Resistor           | R6        | 27 kOhm Resistor, 0603 SMT            | 1        | Mouser [603-RC0603FR-1327KL](https://www.mouser.com/ProductDetail/603-RC0603FR-1327KL)
+Resistor           | R7        | 1 MOhm Resistor, 0603 SMT             | 1        | Mouser [603-RC0603FR-131ML](https://www.mouser.com/ProductDetail/603-RC0603FR-131ML)
+Resistor Array     | RN1 - RN4 | 10 kOhm x 4 Resistor Array, 0603 SMT  | 4        | Mouser [667-EXB-38V103JV](https://www.mouser.com/ProductDetail/667-EXB-38V103JV)
+IC Socket          | U2        | 32 pin DIP                            | 1        | Mouser [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP)
 
 ## Red Tape
 
