@@ -50,7 +50,7 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 
 [ISA 8-bit Ethernet project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=6373f65c4a) - View and order all components except of the PCB and the Realtek RTL8019 IC.
 
-[ISA 8-bit Ethernet project on OSH Park](https://oshpark.com/shared_projects/xxxxxxxx) - View and order the PCB.
+[ISA 8-bit Ethernet project on OSH Park](https://oshpark.com/shared_projects/OBud8i6u) - View and order the PCB.
 
 Component type     | Reference | Description                           | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------- | -------- | --------------------------
