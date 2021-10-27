@@ -38,10 +38,10 @@ pcb_mount_2_x = pcb_mount_1_x + 56.52;
 pcb_hole_y = 5.33;
 pcb_hole_diameter = 2.8;
 
-eth_height = 16.25; // 0.64"
-eth_width = 14.2; // 0.56"
+eth_height = 16.2; // 16.25
+eth_width = 13.8;
 eth_center_x = pcb_mount_1_x + 1.125 * 25.4;
-eth_offset_z = 2;
+eth_offset_z = 2.6;
 
 // Bracket orientation: laying down on PCB mounts in card's (X-Y) plane
 // Origin - top (ISA card oriented vertically) inside (closer to the PCB) corner
