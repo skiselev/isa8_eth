@@ -9,9 +9,9 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 ## Specifications
 * ISA 8-bit interface (62 pin / card edge)
 * NE2000 compatible
-  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use a patched driver instead
-* Supports configuration using switches, jumperless configruaiton using RSET8019 utility or PnP
-  * Uses DIP switches instead of jumpers for reliablity and ease of configuration
+  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use a [patched driver](driver/) instead
+* Supports configuration using switches, jumperless configuration using RSET8019 utility or PnP
+  * Uses DIP switches instead of jumpers for reliability and ease of configuration
 * Boot ROM support
   * Socket supports 512 KiB Flash ROM, such as SST/Microchip 39SF040
   * Can be configured in 16 KiB, 32 KiB, 64 KiB, or page mode. In page mode the entire 512 KiB are accessible through a 16 KiB window
@@ -80,6 +80,6 @@ IC Socket          | U2        | 32 pin DIP                            | 1      
 
 ISA 8-bit Ethernet is an open source hardware project certified by [Open Source Hardware Association](https://www.oshwa.org/), certification UID is [US002001](https://certification.oshwa.org/us002001.html). The hardware design itself, including schematic and PCB layout design files are licensed under the strongly-reciprocal variant of [CERN Open Hardware Licence version 2](license-cern_ohl_s_v2.txt). The NE2000 driver code is licensed under [GNU General Public License v2](license-gpl-2.0.txt). Documentation, including this file, is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](license-cc-by-sa-4.0.txt).
 
-KiCad symbols and modules used in this project are available in [my KiCad library](https://github.com/skiselev/my_kicad_library) repostiory
+KiCad symbols and modules used in this project are available in [my KiCad library](https://github.com/skiselev/my_kicad_library) repository
 
 ![CERN-OHL-2.0-S, GPL-2.0, CC-BY-SA-4.0](images/CERN-OHL-2.0-S_GPL-2.0_CC-BY-SA-4.0.svg)
