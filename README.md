@@ -46,6 +46,105 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 
 ### Switches and Connectors
 
+#### SW1 - CONFIG
+This switch block sets the configuration mode
+
+Configuration Mode    | Switch Position
+--------------------- | ------------------------
+Jumperless / RSET8019 | SW1.1 = OFF, SW1.2 = OFF
+Switches              | SW1.1 = ON, SW1.2 = OFF
+PnP                   | SW1.1 = OFF, SW1.2 = ON
+
+#### SW2 - IRQ
+This switch block, when the card is in the **Switches** configuration mode, sets the Ethernet controller IRQ
+
+IRQ                             | Switch Position
+------------------------------- | ------------------------
+IRQ2 (on PC/XT) or IRQ9 (on AT) | SW2.1 = OFF, SW2.2 = OFF
+IRQ3                            | SW2.1 = ON, SW2.2 = OFF
+IRQ4                            | SW2.1 = OFF, SW2.2 = ON
+IRQ5                            | SW2.1 = ON, SW2.2 = ON
+
+#### SW3 - IO_ADDR
+This switch block, when the card is in the **Switches** configuration mode, sets the Ethernet controller I/O address
+
+I/O Address | SW3.1 | SW3.2 | SW3.3 | SW3.4
+----------- | ----- | ----- | ------| -----
+0x200       | OFF   | OFF   | ON    | OFF
+0x220       | ON    | OFF   | ON    | OFF
+0x240       | OFF   | ON    | ON    | OFF
+0x260       | ON    | ON    | ON    | OFF
+0x280       | OFF   | OFF   | ON    | ON
+0x2A0       | ON    | OFF   | ON    | ON
+0x2C0       | OFF   | ON    | ON    | ON
+0x2E0       | ON    | ON    | ON    | ON
+0x300       | OFF   | OFF   | OFF   | OFF
+0x320       | ON    | OFF   | OFF   | OFF
+0x340       | OFF   | ON    | OFF   | OFF
+0x360       | ON    | ON    | OFF   | OFF
+0x380       | OFF   | OFF   | OFF   | ON
+0x3A0       | ON    | OFF   | OFF   | ON
+0x3C0       | OFF   | ON    | OFF   | ON
+0x3E0       | ON    | ON    | OFF   | ON
+
+#### SW4 - ROM_ADDR
+This switch block, when the card is in the **Switches** configuration mode, sets the Ethernet controller boot ROM address and size
+
+ROM Address  | ROM Size           | SW4.1 | SW4.2 | SW4.3 | SW4.4 | SW4.5
+------------ | ------------------ | ----- | ------| ----- | ----- | -----
+ROM Disabled | Not applicable     | *     | *     | *     | OFF   | OFF
+0xC0000      | 16 KiB             | OFF   | OFF   | OFF   | OFF   | ON
+0xC4000      | 16 KiB             | ON    | OFF   | OFF   | OFF   | ON
+0xC8000      | 16 KiB             | OFF   | ON    | OFF   | OFF   | ON
+0xCC000      | 16 KiB             | ON    | ON    | OFF   | OFF   | ON
+0xD0000      | 16 KiB             | OFF   | OFF   | ON    | OFF   | ON
+0xD4000      | 16 KiB             | ON    | OFF   | ON    | OFF   | ON
+0xD8000      | 16 KiB             | OFF   | ON    | ON    | OFF   | ON
+0xDC000      | 16 KiB             | ON    | ON    | ON    | OFF   | ON
+0xC0000      | 32 KiB             | OFF   | OFF   | OFF   | ON    | OFF
+0xC8000      | 32 KiB             | ON    | OFF   | OFF   | ON    | OFF
+0xD0000      | 32 KiB             | OFF   | ON    | OFF   | ON    | OFF
+0xD8000      | 32 KiB             | ON    | ON    | OFF   | ON    | OFF
+0xC0000      | 64 KiB             | OFF   | OFF   | ON    | ON    | OFF
+0xD0000      | 64 KiB             | ON    | OFF   | ON    | ON    | OFF
+0xC0000      | 16 KiB / Page mode | OFF   | OFF   | OFF   | ON    | ON
+0xC4000      | 16 KiB / Page mode | ON    | OFF   | OFF   | ON    | ON
+0xC8000      | 16 KiB / Page mode | OFF   | ON    | OFF   | ON    | ON
+0xCC000      | 16 KiB / Page mode | ON    | ON    | OFF   | ON    | ON
+0xD0000      | 16 KiB / Page mode | OFF   | OFF   | ON    | ON    | ON
+0xD4000      | 16 KiB / Page mode | ON    | OFF   | ON    | ON    | ON
+0xD8000      | 16 KiB / Page mode | OFF   | ON    | ON    | ON    | ON
+0xDC000      | 16 KiB / Page mode | ON    | ON    | ON    | ON    | ON
+
+#### J1 - Ethernet Connector
+
+#### J2 - MEM_EXT
+This connector can be used to add up to 4 MiB of optional memory (ROM or RAM).
+The memory, if larger than 64 KiB, can be accessed using the page mode.
+
+Pin | Description   | Pin | Description
+--- | ------------- | --- | -----------
+1   | 5V            | 2   | 5V
+3   | No connection | 4   | A21
+5   | No connection | 6   | A20
+7   | No connection | 8   | A19
+9   | A18           | 10  | /MEMW
+11  | A16           | 12  | A17
+13  | A15           | 14  | A14
+15  | A12           | 16  | A13
+17  | A7            | 18  | A8
+19  | A6            | 20  | A9
+21  | A5            | 22  | A11
+23  | A4            | 24  | /MEMR
+25  | A3            | 26  | A10
+27  | A2            | 28  | /CS
+29  | A1            | 30  | D7
+31  | A0            | 32  | D6
+33  | D0            | 34  | D5
+35  | D1            | 36  | D4
+37  | D2            | 38  | D3
+39  | GND           | 40  | GND
+
 ### Bill of Materials - Version 1.0
 
 [ISA 8-bit Ethernet project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=6373f65c4a) - View and order all components except of the PCB and the Realtek RTL8019 IC.
