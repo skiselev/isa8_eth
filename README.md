@@ -9,8 +9,8 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 ## Specifications
 * ISA 8-bit interface (62 pin / card edge)
 * NE2000 compatible
-  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use a [patched driver](driver/) instead
-* Supports configuration using switches, jumperless configuration using RSET8019 utility or PnP
+  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use a [patched driver](software/driver/) instead
+* Supports configuration using switches, jumperless configuration using [RSET8019](software/RSET8019/) utility or PnP
   * Uses DIP switches instead of jumpers for reliability and ease of configuration
 * Boot ROM support
   * Socket supports 512 KiB Flash ROM, such as SST/Microchip 39SF040
