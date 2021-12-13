@@ -9,7 +9,7 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 ## Specifications
 * ISA 8-bit interface (62 pin / card edge)
 * NE2000 compatible
-  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use a [patched driver](software/driver/) instead
+  * Note: Popular Crynwr NE2000 pocket driver does not support NE2000 in 8-bit slots. Please use the [patched driver](software/driver/) instead
 * Supports configuration using switches, jumperless configuration using [RSET8019](software/RSET8019/) utility or PnP
   * Uses DIP switches instead of jumpers for reliability and ease of configuration
 * Boot ROM support
@@ -28,6 +28,8 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 
 ### Building Instructions
 
+#### Assemble the PCB
+
 * Clean the PCB with alcohol
 * Apply fluid flux to SMD components pads
 * Solder U1 RTL8019 IC
@@ -36,13 +38,42 @@ ISA 8-Bit Ethernet Controller is an open source network interface controller (NI
 * Solder C1 - C8 ceramic capacitors
 * Solder C9 and C10 tantalum capacitors
 * Solder Y1 crystal
-* Program U3 EEPROM
-  * Make sure to use unique MAC address
+* Optional: Program U3 EEPROM. Make sure to use unique MAC address
+  * Note: EEPROM can be programmed later using [PG8019](software/PG8019/) utility
 * Solder U3 EEPROM
 * Optional: Solder SW1 - SW4 DIP switches and U2 IC socket
 * Solder J1 Ethernet jack with integrated magentics
 * Clean the remaining flux with alcohol
-* Test the board
+
+#### Program EEPROM
+
+If EEPROM has not been programmed prior to assembly, now it is a good time to do so.
+The U3 EEPROM contains the following configuration for the RTL8019AS chip:
+* MAC address
+* ISA resources for jumperless configuration
+  * Base I/O address
+  * IRQ number
+  * Boot ROM mode, size, and base memory address
+* Other ethernet controller confirguration - medium type, full duplex, LEDs function, power management settings
+* Product ID (not normally used, although some vendor specific drivers might check for it)
+* Plug and Play data
+  * Vendor ID, serial number, PnP version, I/O, memory, and IRQ resources
+
+This information can be programmed using [PG8019](software/PG8019/) utility. The 8019AS.CFG file contains the recommended configuration. Make sure to edit it, and update the MAC address and the serial number. Note that the MAC address is given in the Big-endian format (that is the last byte has the least significant value), while the serial number is given in Little-endian format (that is the first byte has the least significant value). 
+
+A few notes about using PG8019:
+* Make sure that your system has 0x300-0x31F I/O addresses available regardless of the Ethernet controller addresses specified in 8019AS.CFG. Note that XT-IDE and XT-CF-Lite frequently use this I/O range. In case you have such a card, you can either temporarily remove it from your system, boot and run PG8019 from a floppy disk, or switch your XT-IDE or XT-CF-Lite to a different address. In the latter case you'll need to update the XT IDE BIOS configuration
+* Make sure that your system boots in real mode (no EMM386), or anything else that might interfer with the card. Ideally boot your system without any drivers loaded at all, for example, in later MS-DOS versions it is possible to bypass CONFIG.SYS and AUTOEXEC.BAT by hitting F5 key at the boot time
+* After EEPROM has been programmed successfully, the PG8019 utility will print the MAC address, also, it will automatically increment the MAC address and the serial number in 8019AS.CFG, which is useful when programming multiple cards
+
+[Openmoko Inc.](https://github.com/skiselev/openmoko-usb-oui) has generously allocated [00-1F-11-02-60-00 - 00-1F-11-02-7F-FF](https://github.com/skiselev/openmoko-usb-oui/blob/master/ieee_oui.psv) MAC addresses range for ISA 8-Bit Ethernet controller project. You can use MAC addresses from this range for your build, as long as you are using this design. Please apply for a different range if you're redesigning the board or re-using this Ethernet controller design in your own project. I ask you not to use 00-1F-11-02-60-00 - 00-1F-11-02-63-FF range (first 1024 addresses). I am using this range for the cards that I build.
+
+#### Test Ethernet Controller
+
+* Connect Ethernet cable. Make sure that the green "Link" LED lights up
+* Use mTCP to test the controller
+  * DHCP to obtain IP address
+  * FTP or HTGET to download a file
 
 ### Switches and Connectors
 
