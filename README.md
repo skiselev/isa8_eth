@@ -204,6 +204,77 @@ Resistor           | R7        | 1 MOhm Resistor, 0603 SMT             | 1      
 Resistor Array     | RN1 - RN4 | 10 kOhm x 4 Resistor Array, 0603 SMT  | 4        | Mouser [667-EXB-38V103JV](https://www.mouser.com/ProductDetail/667-EXB-38V103JV)
 IC Socket          | U2        | 32 pin DIP                            | 1        | Mouser [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP)
 
+## Reference Information
+
+### Realtek RTL8019AS EEPROM Content
+
+The Realtek RTL8019AS uses 93C46 - 1Kbit / 128 bytes EEPROM to store the configuration. The EEPROM is accessed using 16-bit word mode, with data being stored in Big-endian format. This means that the bytes should be swapped when the EEPROM content is accessed on an x86 system.
+
+Address      | Size | Content                                | Default Configuration for ISA 8-Bit Ethernet
+-------------|------|----------------------------------------|---------------------------------------------
+0x00 - 0x03  | 4    | CONFIG1, CONFIG2, CONFIG3, CONFIG4     |
+0x00         | 1    | CONFIG1                                | 0x07
+0x01         | 1    | CONFIG2                                | 0x00
+0x02         | 1    | CONFIG3                                | 0xD0
+0x03         | 1    | CONFIG4                                | 0x01
+0x04 - 0x09  | 6    | Ethernet ID (MAC Address)              | 0x00 0x1F 0x11 0x02 0x70 0x00
+0x0A - 0x11  | 8    | Product ID                             | 0x49 0x53 0x41 0x38 0x45 0x54 0x48 0x20
+0x12 - 0x1A  | 9    | PnP header                             | 
+0x12 - 0x15  | 4    | Vendor ID (0-3)                        |  
+0x12 - 0x13  | 2    | Vendor ID - compressed ASCII (00000=A) | 0x4A 0x8C - 0 10010=R 10100=T 01100=L
+0x14 - 0x15  | 2    | Vendor ID - product number             | 0x80 0x19 - 8019
+0x16 - 0x19  | 4    | Serial Number (0-3)                    | 0x00 0x10 0x00 0x00
+0x1A         | 1    | Checksum                               | ?
+0x1B - 0x7F  | 101  | PnP Resource Data                      | 
+0x1B - 0x1D  | 3    | PnP Version Number                     |
+0x1B         | 1    | Item byte                              | 0x0A
+0x1C         | 1    | PnP Version                            | 0x10
+0x1D         | 1    | Vendor Version                         | 0x10
+0x1E - 0x3B  | 37   | ANSI Identifier String                 | 
+0x1E         | 1    | Item byte                              | 0x82
+0x1F         | 1    | Length, bits 7-0                       | 0x24
+0x20         | 1    | Length, bits 15-8                      | 0x00
+0x21 - 0x44  | 36   | Identifier String                      | "ISA 8-Bit Plug & Play Ethernet Card", 0x00
+0x45 - 0x4B  | 7    | Logical Device ID                      |
+0x45         | 1    | Item byte                              | 0x16
+0x46 - 0x49  | 4    | Logical Device ID 0-3                  | 0x00 0x00 0x80 0x19
+0x4A         | 1    | Flag 0                                 | 0x02 (Boot ROM disabled) or 0x03 (Boot ROM enabled)
+0x4B         | 1    | Flag 1                                 | 0x00
+0x4C - 0x50  | 5    | Compatible Device ID (NE2000 compatible) |
+0x4C         | 1    | Item byte                              | 0x1C
+0x4D - 0x50  | 4    | Compatible ID                          | 0x41 0xD0 0x80 0xD6
+0x51 - 0x58  | 8    | I/O Format                             |
+0x51         | 1    | Item byte                              | 0x47
+0x52         | 1    | I/O Information                        | 0x00
+0x53         | 1    | Minimal I/O base, bits 7-0             | 0x20
+0x54         | 1    | Minimal I/O base, bits 15-8            | 0x02
+0x55         | 1    | Maximal I/O base, bits 7-0             | 0x80
+0x56         | 1    | Maximal I/O base, bits 15-8            | 0x03
+0x57         | 1    | Base alignment                         | 0x20
+0x58         | 1    | Range length                           | 0x20
+0x59 - 0x5C  | 4    | IRQ Format                             |
+0x59         | 1    | Item byte                              | 0x23 - Small item name = 0x04 (IRQ), Length = 3
+0x5A         | 1    | IRQ mask bits 7-0                      | 0x3C - IRQ 0-7 mask - IRQ5, IRQ4, IRQ3, IRQ2
+0x5B         | 1    | IRQ mask bits 15-8                     | 0x02 - IRQ 8-15 mask - IRQ9 (note: IRQ9 is the same as IRQ2, others are not available on an 8-bit slot)
+0x5C         | 1    | IRQ information                        | 0x01 - High true edge sensitive
+0x5D - 0x6A  | 12   | Memory Format (optional)               | 64 KiB Boot ROM (16 KiB Boot ROM)
+0x5D         | 1    | Item byte                              | 0x81
+0x5E         | 1    | Length, bits 7-0                       | 0x09
+0x5F         | 1    | Length, bits 15-8                      | 0x00
+0x60         | 1    | Memory information                     | 0x40
+0x61         | 1    | Minimal base, bits 15-8                | 0x00
+0x62         | 1    | Minimal base, bits 24-16               | 0x0C
+0x63         | 1    | Maximal base, bits 7-0                 | 0x00 (0xC0 for 16 KiB)
+0x64         | 1    | Maximal base, bits 15-8                | 0x0D
+0x65         | 1    | Base alignment, bits 7-0               | 0x00
+0x66         | 1    | Base alignment, bits 15-8              | 0x00 (0x40 for 16 KiB)
+0x67         | 1    | Range length bits 15-8                 | 0x00 (0x40 for 16 KiB)
+0x68         | 1    | Range length bits 24-16                | 0x01 (0x00 for 16 KiB)
+0x69 - 0x6A  | 2    | End Tag                                |
+0x6B         | 1    | Item byte                              | 0x79
+0x6C         | 1    | Checksum of the resource data          | 0x1F
+0x6D-0x7F    | ?    | Unused space                           | 0xFF
+
 ## Red Tape
 
 ### Licensing
