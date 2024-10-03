@@ -196,7 +196,7 @@ DIP Switch         | SW4       | DIP switch, 5 position, SPST          | 1      
 Capacitor          | C1, C2    | 10pF MLCC Capacitor, 0603 SMT         | 2        | Mouser [77-VJ0603A100JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603A100JXACBC)
 Capacitor          | C3, C4    | 0.01uF MLCC Capacitor, 0603 SMT       | 2        | Mouser [77-VJ0603Y103JXACBC](https://www.mouser.com/ProductDetail/77-VJ0603Y103JXACBC)
 Capacitor          | C5 - C8   | 0.1uF MLCC Capacitor, 0603 SMT        | 4        | Mouser [77-VJ0603Y104JXJPBC](https://www.mouser.com/ProductDetail/77-VJ0603Y104JXJPBC)
-Capacitor          | C1, C2    | 22uF Tantalum Capacitor, 1210 SMT     | 2        | Mouser [581-TAJB226K016TNJ](https://www.mouser.com/ProductDetail/581-TAJB226K016TNJ)
+Capacitor          | C9, C10   | 22uF Tantalum Capacitor, 1210 SMT     | 2        | Mouser [581-TAJB226K016TNJ](https://www.mouser.com/ProductDetail/581-TAJB226K016TNJ)
 Resistor           | R1        | 200 Ohm Resistor, 0603 SMT            | 1        | Mouser [603-RC0603FR-13200RL](https://www.mouser.com/ProductDetail/603-RC0603FR-13200RL)
 Resistor           | R2, R3    | 470 Ohm Resistor, 0603 SMT            | 2        | Mouser [603-RC0603FR-13470RL](https://www.mouser.com/ProductDetail/603-RC0603FR-13470RL)
 Resistor           | R6        | 27 kOhm Resistor, 0603 SMT            | 1        | Mouser [603-RC0603FR-1327KL](https://www.mouser.com/ProductDetail/603-RC0603FR-1327KL)
