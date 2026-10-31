@@ -39,7 +39,7 @@ EN_OFF		equ	0h
 
 SM_TSTART_PG	equ	040h	; First page of TX buffer
 SM_RSTART_PG	equ	046h	; Starting page of RX ring
-SM_RSTOP_PG	equ	080h	; Last page +1 of RX ring
+SM_RSTOP_PG	    equ	060h	; Last page +1 of RX ring
 
 pause_	macro
 ;	jmp	$+2
